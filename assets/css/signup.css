@@ -40,4 +40,57 @@ background {
     text-shadow: 1px 2px black;
     letter-spacing: 1px;
   }
+  .form-container .signupform .reg-button {
+    background-color: transparent;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    border: 2px solid orangered;
+    color: whitesmoke;
+    font-weight: bold;
+    width: 100%;
+    border-radius: 250px;
+    height: 50px;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  .form-container .signupform .reg-button:hover {
+    background-color: orangered;
+    color: black;
+  }
+  .checker {
+    text-align: center;
+    color: rgb(247, 244, 241);
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-shadow: 1px 1px rgb(9, 47, 153);
+    margin-top: 10px;
+  }
+  h2:hover {
+    color: orangered;
+    text-shadow: 1px 2px black;
+  }
+  .form-container .signupform label:hover {
+    color: orangered;
+  }
+  .checker:hover {
+    color: orangered;
+  }
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 0.7; /* Firefox */
+  }
+   
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: white;
+    opacity: 0.7;
+  }
+   
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: white;
+    opacity: 0.7;
+  }
   
