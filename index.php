@@ -32,7 +32,7 @@
               <a class="nav-link" href="#contact-us">About Us <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="signup.php" target="__blank">Sign Up</a>
+              <a class="nav-link" href="register.php" target="__blank">Sign Up</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="login.php" tabindex="-1" aria-disabled="true" target="__blank">Login</a>
