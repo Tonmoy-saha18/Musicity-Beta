@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  .background {
+    /* background-color: #fff; */
+    background-image: url("/Musicity-Beta/assets/images/choosed_background.jpg");
+    background-position: center;
+    background-size: cover;
+    display: table;
+    width: 100%;
+    height: 100vh;
+  }
+  .navbar-container {
+    position: sticky;
+    top: 0;
+    background-color: #00ae53;
+    border-bottom: 3px solid #187daf;
+  }
+  
+  .navbar-container div {
+    margin-left: 50vw;
+  }
+  .navbar-container > a {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 1px 1px #186dae;
+    color: rgb(36, 28, 28) !important;
+    margin-left: 5vw;
+  }
+  .navbar-container div ul li a {
+    margin-left: 4vw;
+    font-weight: bold;
+    text-shadow: 1px 1px #186dae;
+  }
+  .navbar-container div ul li a:hover {
+    background-color: #07743b;
+    padding: 5px;
+  }
+  .banner-section {
+    margin-top: 15vh;
+  }
+  .banner-section h1 {
+    font-size: 55px;
+    font-weight: bold;
+    text-shadow: 5px 5px #024556;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    /* font-family: 'Orelega One', cursive; */
+  }
+  .btnedit {
+    margin-top: 30px;
+    height: 60px;
+    font-weight: 700;
+    border-radius: 250px;
+    width: 350px;
+    outline: none;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    margin-bottom: 20px;
+  }
+  .btnedit:hover {
+    background-color: green;
+    color: white;
+    border: 2px solid green;
+  }
+  .footer-section {
+    background-color: #000000;
+  }
+  .logo {
+    display: block;
+    margin-left: 20vw;
+  }
+  .icon1 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    outline: none;
+    background-color: gray;
+    border: 2px solid black;
+    margin-left: 20vw;
+  }
+  .icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    outline: none;
+    background-color: gray;
+    border: 2px solid black;
+    margin-left: 2vw;
+  }
+  
