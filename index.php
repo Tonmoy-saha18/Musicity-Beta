@@ -40,7 +40,27 @@
           </ul>
         </div>
       </nav>
-      
+      <section class="banner-section container-fluid">
+        <div class="row banner-row">
+          <div class="col-md-9 m-auto text-center text-light banner-colum">
+            <h1 class="display-5">Music gives a soul to the universe</h1>
+            <h1 class="display-5">Wings to the mind</h1>
+            <h1 class="display-5">Flight to the imagination</h1>
+            <h1 class="display-5">And life to everything.</h1>
+            <a href="signup.php" target="__blank"><button class="btnedit p-3">Get Musicity free for 1 day</button></a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="container-fluid p-4 footer-section" id="contact-us">
+      <div class="row">
+          <div class="col-md-6"><h3 class="text-light logo"><i class="fas fa-podcast"></i>Musicity</h3></div>
+          <div class="col-md-6 iconlink">
+            <a href="https://www.facebook.com/tonmoy.saha.969" target="__blank"><button class="icon1"><i class="fab fa-facebook"></i></button></a>
+            <a href="https://www.instagram.com/tonmoy548/?fbclid=IwAR0hAjZxAO37dTstw75FQt72l81RWtL67yJqyjJ9I7Uw4tJ5JwcDJCwSVUw" target="__blank"><button class="icon"><i class="fab fa-instagram"></i></button></a>
+            <a href="https://www.linkedin.com/in/tonmoy-saha-299050199/" target="__blank"><button class="icon"><i class="fab fa-linkedin"></i></button></a>
+          </div>
+        </div>
   </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
