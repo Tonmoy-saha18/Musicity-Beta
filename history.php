@@ -27,7 +27,75 @@
                   </div>
                 </nav>
                
-                  
+                <div class="container">
+                      <div class="row">
+                        <div class="transaction col-5">
+                          <h4><i class="fas fa-history"></i> Transaction History</h4>
+                          <?php
+                            $username = $_SESSION['userLoggedIn']; //taking the username
+                            //taking the user id
+                            $query = "SELECT * FROM users Where username = '$username'";
+                            $userobj = $con->query($query);
+                            $user = $userobj->fetch();
+                            $userid = $user['id'];
+ 
+                            //here we will take transaction table history of the user
+                            $transactionquery = "SELECT * FROM transaction WHERE user_id = $userid";
+                            $returnobj = $con->query($transactionquery);
+                            $transaction = $returnobj->fetchAll();
+                            ?>
+                                <table class="t1">
+                                    <thead>
+                                        <tr>
+                                          <th>Transaction ID</th>
+                                          <th>Transaction Date</th>
+                                          <th>Amount</th>
+                                          <th> Transaction Type</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <?php
+                                        foreach ($transaction as $tr){
+                                            ?>
+                                                <tr>
+                                                    <td> <?php echo $tr['id'];?> </td>
+                                                    <td> <?php echo $tr['transaction_date'];?> </td>
+                                                    <td> <?php echo $tr['amount'];?> </td>
+                                                    <td><?php echo $tr['description'];?></td>
+                                                </tr>
+                                            <?php
+                                        }
+                                      ?>
+                                    </tbody>
+                                </table>
+                            <?php
+ 
+                          ?>
+                        </div>
+                        <div class="purchase col-5">
+                          <h4 class="t2"> <i class="fas fa-history"></i> Purchase History</h4>
+                          <?php
+                            $username = $_SESSION['userLoggedIn']; //taking the username
+                            //taking the user id
+                            $query = "SELECT * FROM users Where username = '$username'";
+                            $userobj = $con->query($query);
+                            $user = $userobj->fetch();
+                            $userid = $user['id'];
+ 
+                            //here we will take song purchase history of the user
+                            $transactionquery = "SELECT * FROM history WHERE user_id = $userid";
+                            $returnobj = $con->query($transactionquery);
+                            $transaction = $returnobj->fetchAll();
+ 
+                            ?>
+                                
+                                
+                                       
+                            <?php
+ 
+                          ?>
+                        </div>
+                      </div>
                   </div>
  
  
