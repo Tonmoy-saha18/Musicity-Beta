@@ -102,6 +102,16 @@
                     }
                     // location.assign('includes/handlers/reported-deletesongreport-handler.php?songid='+songid+"&reportid="+reportid);
                 }
+                function DeleteReport(reportid){
+                    var flag = confirm("Do you want to delete this report?")
+                    if(flag){
+                        location.assign('includes/handlers/delete-report-handler.php?reportid='+reportid);
+                    }
+                    else{
+                        location.assign('admin-view.php');
+                    }
+                    // location.assign('includes/handlers/delete-report-handler.php?reportid='+reportid);
+                }
                 function GetSong(songid){
                     location.assign('admin-GetClickSong.php?sid='+songid);
                 }
