@@ -102,6 +102,9 @@
                     }
                     // location.assign('includes/handlers/reported-deletesongreport-handler.php?songid='+songid+"&reportid="+reportid);
                 }
+                function GetSong(songid){
+                    location.assign('admin-GetClickSong.php?sid='+songid);
+                }
             </script>
         </body>
         </html>
