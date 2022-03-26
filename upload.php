@@ -118,7 +118,17 @@
                 <?php
             }
             else{
-                
+                ?>
+                    <script>
+                        setTimeout(() => {
+                                alert("You don't Have any album. Create an album first to upload a song");
+                        }, 500);
+                        setTimeout(() => {
+                            location.assign('createalbum.php')
+                        }, 500)
+                        // location.assign('createalbum.php')
+                    </script>
+                <?php
             }
         ?>
         <?php
