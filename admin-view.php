@@ -90,6 +90,19 @@
                 </table>    
 
             </div>
+    
+            <script>
+                function DeleteSongAndReport(songid,reportid){
+                    var flag = confirm("Do you want to delete this song?")
+                    if(flag){
+                        location.assign('includes/handlers/reported-deletesongreport-handler.php?songid='+songid+"&reportid="+reportid);
+                    }
+                    else{
+                        location.assign('admin-view.php');
+                    }
+                    // location.assign('includes/handlers/reported-deletesongreport-handler.php?songid='+songid+"&reportid="+reportid);
+                }
+            </script>
         </body>
         </html>
         <?php
