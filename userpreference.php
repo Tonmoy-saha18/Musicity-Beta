@@ -13,7 +13,7 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="shortcut icon" type="/image/png" href="assets/images/titleimage.png">
-            <link rel="stylesheet" href="assets/css/userpreferance.css">
+            <link rel="stylesheet" href="assets/css/userpreference.css">
             <title>User Preferance</title>
         </head>
         <body>
