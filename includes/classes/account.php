@@ -15,7 +15,7 @@
  
             // $result = mysqli_query($this->con, "INSERT INTO users VALUES ('$un', '', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic', '0')");
             // insering user details
-            $userdetails = "INSERT INTO users VALUES ('', '$un','$fn', '$ln','$cn','$em','$encryptedPw','$date','$profilePic','0')";
+            $userdetails = "INSERT INTO users VALUES ('', '$un','$fn', '$ln','$cn','$em','$encryptedPw','$date','$profilePic','0',NULL)";
             $this->con->exec($userdetails);
             session_start();
             $_SESSION['userLoggedIn'] = $un;

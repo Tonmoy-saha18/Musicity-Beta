@@ -35,7 +35,7 @@
     <div class="container-fluid background">
         <div class="form-container">
             <h2>Create an account</h2>
-            <form action="signup.php" method="POST" class="signupform">
+            <form action="register.php" method="POST" class="signupform">
                 <p>
                     <label for="username"><i class="fas fa-user-circle"></i> Username</label><br>
                     <input type="text" name="username" id="username" value="<?php getInputValue('username'); ?>"required>
