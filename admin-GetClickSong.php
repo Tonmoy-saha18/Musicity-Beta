@@ -24,7 +24,25 @@
                         <a class="navbar-brand mx-auto" style="text-decoration: none; color:black; font-weight:bold;"href="song-list.php">Song List</a>
                     </div>
                 </nav>
-                
+                <?php
+                    $song_id = $_GET['sid'];
+                    $query = "SELECT * FROM songs WHERE id=$song_id";
+                    $returnobj = $con->query($query);
+                    $table = $returnobj->fetchAll();
+                    foreach ($table as $song){
+                        ?>
+                         <div class="song-list">
+                            <div class="indiv">
+                                <h5><?php echo $song['id']; ?></>
+                                <h5><?php echo $song['title']; ?></h5><br>
+                                <audio controls>
+                                    <source src="<?php echo $song['song_path'];?>" type="audio/mp3">
+                                </audio>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                ?>
             </div>
         </body>
         </html>
