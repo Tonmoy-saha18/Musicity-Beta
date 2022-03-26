@@ -1,0 +1,34 @@
+.maincontainer {
+    display: block;
+    margin: auto;
+    width: 30vw;
+    height: 98vh;
+    padding: 10px;
+    box-shadow: 2px 2px 5px 5px gray;
+  }
+  h4 {
+    text-align: center;
+  }
+  .preferanceform p {
+    margin-left: 80px;
+  }
+  .btn {
+    width: 70%;
+    padding: 10px;
+    margin-left: 80px;
+    margin-top: 10px;
+    border-radius: 50px;
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    font-weight: bold;
+  }
+  .btn:hover {
+    cursor: pointer;
+  }
+  input {
+    color: black;
+  }
+   
+  
+  
