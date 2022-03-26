@@ -1,0 +1,39 @@
+.container {
+  background-size: cover;
+}
+.inner-container {
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin: auto;
+  padding: 30px;
+  margin-top: 150px;
+  box-shadow: 2px 2px 5px 5px black;
+}
+.inp {
+  width: 100%;
+  padding: 5px;
+  border: 0;
+  border-bottom: 2px solid black;
+  font-weight: 400;
+  outline: none;
+}
+.btn {
+  background-color: black;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  border: 1px solid red;
+}
+label {
+  font-weight: bold;
+}
+ 
+.btn:hover {
+  color: gray;
+  cursor: pointer;
+  outline: none;
+}
