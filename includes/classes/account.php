@@ -7,6 +7,33 @@
             $this->con = $con;
             $this->errorArray = array();
         }
+
+        public function login($un, $pw) {
+ 
+            $encryptedpw = md5($pw);
+ 
+            // $query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$un' AND password='$encryptedpw'");
+            // echo query;
+            $check_validity = "SELECT * FROM users WHERE username='$un' AND pasword='$encryptedpw'";
+            $table = $this->con->query($check_validity);
+            /*
+                if(mysqli_num_rows($query) == 1) {
+                    return true;
+                }
+                else {
+                    array_push($this->errorArray, Constants::$loginFailed);
+                    return false;
+                }
+            */
+            if($table->rowCount() == 1){
+                return true;
+            }
+            else{
+                array_push($this->errorArray,Constants::$loginFailed);
+                return false;
+            }
+ 
+        }
  
         private function insertUserDetails($un, $fn, $ln, $cn, $em, $pw) {
             $encryptedPw = md5($pw);
