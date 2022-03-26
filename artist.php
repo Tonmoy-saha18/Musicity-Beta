@@ -40,4 +40,33 @@ $artist = new Artist($con, $artistId);
 
 
 
+<div class="gridViewContainer">
+	<h2>ALBUMS</h2>
+	<?php
+		$albumQuery = "SELECT * FROM albums WHERE artist_id='$artistId'";
+		$data = $con->query($albumQuery);
+			$table = $data->fetchAll();
+
+		foreach($table as $row) {
+			
+
+
+
+			echo "<div class='gridViewItem'>
+					<span role='link' tabindex='0' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
+						<img src='" . $row['artwork_path'] . "'>
+
+						<div class='gridViewInfo'>"
+							. $row['title'] .
+						"</div>
+					</span>
+
+				</div>";
+
+
+
+		}
+	?>
+
+</div>
 
