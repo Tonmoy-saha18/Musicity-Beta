@@ -5,7 +5,15 @@
     //checking whelter the admin is logged in or not
     if(isset($_SESSION['adminLoggedIn']) && !empty($_SESSION['adminLoggedIn'])){
         //
-        
+        if(isset($_GET['songid']) && !empty($_GET['songid']) && isset($_GET['reportid']) && !empty($_GET['reportid'])){
+            
+            <?php
+        }
+        else{
+            ?>
+                
+            <?php
+        }
     }
     else{
         ?>
