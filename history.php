@@ -89,7 +89,38 @@
  
                             ?>
                                 
-                                
+                                <table class="t2">
+                                    <thead>
+                                        <tr>
+                                          <th>Purchase ID</th>
+                                          <th>Purchase Date</th>
+                                          <th>Song ID</th>
+                                          <th>Song Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <?php
+                                        foreach ($transaction as $tr){
+                                            ?>
+                                                <tr>
+                                                    <td> <?php echo $tr['id'];?> </td>
+                                                    <td> <?php echo $tr['date_added'];?> </td>
+                                                    <td> <?php echo $tr['song_id'];?> </td>
+                                                    <td>
+                                                        <?php
+                                                            $sid = $tr['song_id'];
+                                                            $q = "SELECT * FROM songs WHERE id = $sid";
+                                                            $rtn = $con->query($q);
+                                                            $info = $rtn->fetch();
+                                                            echo $info['title'];
+                                                        ?>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                        }
+                                      ?>
+                                    </tbody>
+                                </table>
                                        
                             <?php
  
