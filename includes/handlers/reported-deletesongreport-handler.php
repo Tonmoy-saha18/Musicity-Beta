@@ -14,10 +14,26 @@
             $con->exec($query);
 
             ?>
+                <script>
+                    setTimeout(() => {
+                        alert("Song and reports deleted successfully");
+                    }, 500);
+                    setTimeout(() => {
+                        location.assign('../../admin-view.php');
+                    }, 500);
+                </script>
             <?php
         }
         else{
             ?>
+                <script>
+                    setTimeout(() => {
+                        alert("Values doesn't passed in correctly");
+                    }, 500);
+                    setTimeout(() => {
+                        location.assign('../../admin-view.php');
+                    }, 500);
+                </script>
             <?php
         }
     }
