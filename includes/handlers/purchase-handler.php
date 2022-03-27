@@ -86,6 +86,21 @@
                     $update = "UPDATE users SET amount=$update_amount WHERE id=$ar_id";
                     $con->exec($update);
 
+                    //inserting values to history table
+                    $date = date("Y-m-d H:i:s");
+                    $history = "INSERT INTO history VALUES(NULL,$id,$song_id,'$date')";
+                    $con->exec($history);
+                    ?>
+                        <script>
+                            setTimeout(() => {
+                                alert("Song purchased successfully");
+                            }, 500);
+                            setTimeout(() => {
+                                location.assign('../../index.php');
+                            }, 500);
+                        </script>
+                    <?php
+
                 }
             }
             else{
