@@ -59,7 +59,32 @@
 
                 }
                 else{
-                    
+                    //this means the song doesn't exist in the playlist so we will save it and we will insert it to the database 
+                     //In this part we will insert data to the database table playlist_song
+                    $details = "INSERT INTO playlist_song VALUES(NULL,$order,$song_id,$play_id,0)";
+                    $con->exec($details);
+                    $updateamount = $amount - 30;
+                    $update = "UPDATE users SET amount=$updateamount WHERE id=$id";
+                    $con->exec($update);
+
+                    //increasing the ammount of taka for the user whose song is bought by other users
+                    $details = "SELECT * FROM songs as s JOIN albums as a ON s.album_id = a.id WHERE s.id = $song_id";
+                    $returnobj = $con->query($details);
+                    $table = $returnobj->fetchAll();
+                    foreach($table as $artist){
+                        $ar_id = $artist['artist_id'];
+                    }
+                    //Now we get the amount of that artist
+                    $query = "SELECT * FROM users WHERE id=$ar_id";
+                    $returnobj = $con->query($query);
+                    $table = $returnobj->fetchall();
+                    foreach($table as $artist){
+                        $artist_amount = $artist['amount'];
+                    }
+                    //here we are updateing the details amount details of that artist
+                    $update_amount = $artist_amount + 30;
+                    $update = "UPDATE users SET amount=$update_amount WHERE id=$ar_id";
+                    $con->exec($update);
 
                 }
             }
