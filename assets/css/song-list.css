@@ -1,0 +1,33 @@
+.song-list {
+    border: 2px solid black;
+    width: 90%;
+    height: 100%;
+    margin-left: 60px;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    overflow-y: auto;
+  }
+  .indiv {
+    display: block;
+    margin: auto;
+    width: 35%;
+  }
+  .song-list h5 {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 25px;
+    font-weight: bold;
+  }
+  .song-list:hover {
+    cursor: pointer;
+    background-color: rgb(194, 187, 187);
+  }
+  audio {
+    margin-top: 5px;
+    color: black;
+  }
+   
+   
+   
+  
