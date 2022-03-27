@@ -48,7 +48,7 @@
                     <input type="password" placeholder="password" name="loginPassword" id="loginPassword" required>
                 </p>
                 <button class="btn loginbtn" name="loginButton">Log in</button>
-                <p class="checker-section">Don't have any account?<a href="signup.php"> Create one.</a></p>
+                <p class="checker-section">Don't have any account?<a href="register.php"> Create one.</a></p>
               </form>
           </div>
       </div>
