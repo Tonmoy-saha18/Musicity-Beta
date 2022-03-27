@@ -42,7 +42,26 @@
                 }
 
                 //checking whelter the song already exist in the playlist or not
-                
+                $query = "SELECT * FROM playlist_song as pls JOIN playlist as pl ON pls.playlist_id = pl.id WHERE pls.song_id = '$song_id' AND pl.owner_id=$id";
+                $returnobj = $con->query($query);
+                if($returnobj->rowCount()!=0){
+                    //this means the song already exists so we will show a message to user that this song already exist and then take the user to the home page
+                    ?>
+                        <script>
+                            setTimeout(() => {
+                                alert("Song already exist in your playlist");
+                            }, 500);
+                            setTimeout(() => {
+                                location.assign('../../index.php');
+                            }, 500);
+                        </script>
+                    <?php
+
+                }
+                else{
+                    
+
+                }
             }
             else{
                 //playlist doesn't exist so we will have to show the error to the users
