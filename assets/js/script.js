@@ -1,4 +1,39 @@
 
+var mouseDown = false;
+var currentIndex = 0;
+var repeat = false;
+var shuffle = false;
+var timer;
+
+$(document).click(function(click) {
+	var target = $(click.target);
+
+	if(!target.hasClass("item") && !target.hasClass("optionsButton")) {
+		hideOptionsMenu();
+	}
+});
+$(document).on("change", "select.playlist", function() {
+	var select = $(this);
+	var playlistId = select.val();
+	var songId = select.prev(".songId").val();
+
+	$.post("includes/handlers/ajax/addToPlaylist.php", { playlistId: playlistId, songId: songId})
+	.done(function(error) {
+
+		if(error != "") {
+			alert(error);
+			return;
+		}
+
+		hideOptionsMenu();
+		select.val("");
+	});
+});
+$(window).scroll(function() {
+	hideOptionsMenu();
+});
+
+
 
 function openPage(url) {
 	if(timer != null) {
@@ -13,6 +48,24 @@ function openPage(url) {
 	$("body").scrollTop(0);
 	history.pushState(null, null, url);
 }
+
+function logout() {
+	$.post("includes/handlers/ajax/logout.php", function() {
+		location.reload();
+	});
+}
+
+function formatTime(seconds) {
+	var time = Math.round(seconds);
+	var minutes = Math.floor(time / 60); //Rounds down
+	var seconds = time - (minutes * 60);
+
+	var extraZero = (seconds < 10) ? "0" : "";
+
+	return minutes + ":" + extraZero + seconds;
+}
+
+
 
 
 function updateEmail(emailClass) {
