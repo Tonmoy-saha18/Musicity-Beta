@@ -22,7 +22,7 @@ if(isset($_GET['userLoggedIn'])) {
 					     on u.genre_id = s.genre_id
 					WHERE u.user_id=$id
 					GROUP BY a.id
-					ORDER BY RAND() LIMIT 10";
+					ORDER BY RAND() LIMIT 50";
 		$album = $con->query($query);
 		$data = $album->fetchAll();	
 		 foreach($data AS $row){
