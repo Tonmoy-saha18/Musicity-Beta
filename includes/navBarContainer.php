@@ -19,7 +19,7 @@
 
 		<div class="group">
 			<div class="navItem">
-				<span role="link" tabindex="0" onclick="openPage('browse.php')" class="navItemLink">Browse</span>
+				<span role="link" tabindex="0" onclick="openPage('home.php')" class="navItemLink">Browse</span>
 			</div>
 			<div class="navItem">
 				<span role="link" tabindex="0" onclick="location.assign('createalbum.php')" class="navItemLink">Create Album</span>
