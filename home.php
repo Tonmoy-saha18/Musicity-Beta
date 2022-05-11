@@ -24,4 +24,19 @@ if(isset($_GET['userLoggedIn'])) {
 					GROUP BY a.id
 					ORDER BY RAND() LIMIT 10";
 		$album = $con->query($query);
+		$data = $album->fetchAll();	
+		 foreach($data AS $row){
+			$img = $row['artwork_path'];
+		 	echo "<div class='gridViewItem'>
+					<a href='album.php?id=" . $row['id'] . "'>
+						<img src='" . $img . "'>
+
+						<div class='gridViewInfo'>"
+							. $row['title'] .
+						"</div>
+					</span>
+
+				</div>";
+		 }
+		?>
 </div>
