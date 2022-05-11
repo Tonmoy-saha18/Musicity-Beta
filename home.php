@@ -8,3 +8,20 @@ if(isset($_GET['userLoggedIn'])) {
 	header("Location: register.php");
 	}
 ?>
+<h1 class="pageHeadingBig">You Might Also Like</h1>
+
+<div class="gridViewContainer">
+
+	<?php
+		$id=$userLoggedIn->getUserId();
+		$query = "SELECT a.id, a.artwork_path, a.title 
+					FROM albums as a
+					JOIN songs as s
+						 on s.album_id=a.id 
+					JOIN user_preference as u
+					     on u.genre_id = s.genre_id
+					WHERE u.user_id=$id
+					GROUP BY a.id
+					ORDER BY RAND() LIMIT 10";
+		$album = $con->query($query);
+</div>
