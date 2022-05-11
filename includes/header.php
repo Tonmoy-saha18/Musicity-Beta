@@ -2,8 +2,8 @@
 include("includes/config.php");
 include("includes/classes/User.php");
 include("includes/classes/Artist.php");
-// include("includes/classes/Album.php");
-// include("includes/classes/Song.php");
+include("includes/classes/Album.php");
+include("includes/classes/Song.php");
 // include("includes/classes/Playlist.php");S
 //session_destroy(); LOGOUT
 session_start();
@@ -20,7 +20,7 @@ else {
 
 <html>
 <head>
-	<title>Welcome to Musicity!</title>
+	<title>Musicity!</title>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="shortcut icon" type="/image/png" href="assets/images/titleimage.png">
