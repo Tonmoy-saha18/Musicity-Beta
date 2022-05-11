@@ -37,4 +37,20 @@
 			return $this->artworkPath;
 			// return $path;
 		}
+        public function getNumberOfSongs() {
+			$query = "SELECT id FROM songs WHERE album_id='$this->id'";
+			$data= $this->con->query($query);
+			return $data->rowCount();
+		}
+
+		public function getSongIds() {
+
+			$query = "SELECT id FROM songs WHERE album_id='$this->id' ORDER BY album_order ASC";
+			$data= $this->con->query($query);
+			$row= $data->fetchAll();
+			return $row;
+
+		}
+
+	}
 ?>
