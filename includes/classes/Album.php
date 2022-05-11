@@ -22,4 +22,19 @@
 
 
 		}
+
+        public function getTitle() {
+			return $this->title;
+		}
+
+		public function getArtist() {
+			return new Artist($this->con, $this->artistId);
+		}
+ 
+		public function getArtworkPath() {
+			// $len = strlen($this->artworkPath);
+			// $path = substr($this->artworkPath, 6, $len);
+			return $this->artworkPath;
+			// return $path;
+		}
 ?>
