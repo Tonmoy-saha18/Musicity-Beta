@@ -34,3 +34,48 @@ else {
     </div>
 
 </div>
+
+<div class="tracklistContainer">
+	<ul class="tracklist">
+		
+		<?php
+		$songIdArray = $album->getSongIds();
+
+		$i = 1;
+		foreach($songIdArray as $songId) {
+
+			$albumSong = new Song($con, $songId['id']);
+			$albumArtist = $albumSong->getArtist();
+			$charge = $albumSong->getCharge();
+			
+			echo "<li class='tracklistRow'>
+					<div class='trackCount'>
+						<img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'>
+						<span class='trackNumber'>$i</span>
+					</div>
+
+
+					<div class='trackInfo'>
+						<span class='trackName'>" . $albumSong->getTitle() . "</span>
+						<span class='artistName'>" . $albumArtist->getName() . "</span>
+					</div>
+
+					<div class='trackOptions'>
+						<input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
+					</div>
+					<div>
+						
+						<button class='btn buybtn' name='purchase' onclick='PurchaseSong(" . $albumSong->getId() . ", " . $userLoggedIn->getUserBalance() . ");'>Purchase</button>
+						<button class='btn reportbtn' name='report' onclick='reportSong( " . $userLoggedIn->getUserId() . ", " . $albumSong->getId() . " );'>Report</button>
+					</div>
+					<div class='trackDuration'>
+						<span class='duration'>" . $albumSong->getDuration() . "</span>
+					</div>
+
+
+				</li>";
+
+			$i = $i + 1;
+		}
+
+		?>
