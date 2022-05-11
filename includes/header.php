@@ -20,7 +20,7 @@ else {
 
 <html>
 <head>
-	<title>Musicity!</title>
+	<title>Musicity</title>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="shortcut icon" type="/image/png" href="assets/images/titleimage.png">
