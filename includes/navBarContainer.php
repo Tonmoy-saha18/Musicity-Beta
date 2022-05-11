@@ -5,6 +5,7 @@
 			<img src="assets/images/titleimage.png">
 		</span>
 
+		<span class="useitem">User: <?php echo $_SESSION['userLoggedIn']?></span>
 
 		<div class="group">
 
@@ -33,7 +34,9 @@
 			<div class="navItem">
 				<span role="link" tabindex="0" onclick="location.assign('transaction.php')" class="navItemLink">Transactions</span>
 			</div>
-
+			<div class="navItem">
+				<span role="link" tabindex="0" onclick="location.assign('history.php')" class="navItemLink">Transactions History</span>
+			</div>
 			<div class="navItem">
 				<span role="link" tabindex="0" onclick="location.assign('settings.php')" class="navItemLink"><?php echo $userLoggedIn->getFirstAndLastName(); ?></span>
 			</div>
