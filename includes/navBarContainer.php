@@ -38,7 +38,7 @@
 				<span role="link" tabindex="0" onclick="location.assign('history.php')" class="navItemLink">Transactions History</span>
 			</div>
 			<div class="navItem">
-				<span role="link" tabindex="0" onclick="location.assign('settings.php')" class="navItemLink"><?php echo $userLoggedIn->getFirstAndLastName(); ?></span>
+				<span role="link" tabindex="0" onclick="location.assign('settings.php')" class="navItemLink">Your Profile</span>
 			</div>
 		</div>
 
