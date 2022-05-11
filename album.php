@@ -79,3 +79,33 @@ else {
 		}
 
 		?>
+        <script>
+			var tempSongIds = '<?php echo json_encode(array_column($songIdArray, 'id')) ?>';
+			tempPlaylist = JSON.parse(tempSongIds);
+			function PurchaseSong(song_id,amount){
+                if(amount<30){
+                    alert("You don't have enough money in your account to purchase the song");
+                }
+                else{
+                    var play_name = window.prompt("Enter The Playlist Name Where You want Save That Song");
+                    if(play_name!=null && play_name!=""){
+                        location.assign("includes/handlers/purchase-handler.php?sid="+song_id+"&pname="+play_name);
+                    }
+                    else{
+                        alert("You Haven't enter a valid name")
+                    }
+                }
+            }
+            function reportSong(userid,song_id){
+                var message = prompt("Why do you want to report this song?");
+				if(message != null && message != "") {
+					location.assign("includes/handlers/report-handler.php?userid="+userid+"&songid="+song_id+"&msg="+message);
+				}
+				else{
+					alert("Please tell us why do want to report this song")
+				}
+            }
+		</script>
+
+	</ul>
+</div>
