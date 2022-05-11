@@ -45,3 +45,28 @@
 		public function getAlbum() {
 			return new Album($this->con, $this->albumId);
 		}
+
+        public function getPath() {
+			// $len = strlen($this->path);
+			// $final_path = substr($this->path,6,$len);
+			return $this->path;
+			// return $final_path;
+		}
+
+		public function getDuration() {
+			return $this->duration;
+		}
+
+		public function getMysqliData() {
+			return $this->mysqliData;
+		}
+
+		public function getGenre() {
+			return $this->genre;
+		}
+		public function getCharge(){
+			return $this->setCharge;
+		}
+
+	}
+?>
