@@ -26,3 +26,22 @@
 			$this->path = $this->mysqliData['song_path'];
 			$this->path = $this->mysqliData['set_charge'];
 		}
+
+        public function getTitle() {
+			return $this->title;
+		}
+
+		public function getId() {
+			return $this->id;
+		}
+
+		public function getArtist() {
+			$query = "SELECT artist_id FROM `albums`WHERE id='$this->albumId'";
+			$returnobj=$this->con->query($query);
+			$data=$returnobj->fetch(); 
+			return new Artist($this->con, $data['artist_id']);
+		}
+
+		public function getAlbum() {
+			return new Album($this->con, $this->albumId);
+		}
