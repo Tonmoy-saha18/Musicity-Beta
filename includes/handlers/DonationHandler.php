@@ -45,7 +45,17 @@
             $query = "UPDATE users SET amount=$amount WHERE id=$artistid";
             $con->exec($query);
 
-            
+            ?>
+                <script>
+                    setTimeout(() => {
+                        alert('Donation is Successfull');
+                    }, 500);
+ 
+                    setTimeout(() => {
+                        location.assign('../../phome.php');
+                    }, 500)
+                </script>
+            <?php
         }
     }
     else{
