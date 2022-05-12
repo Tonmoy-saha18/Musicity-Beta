@@ -6,7 +6,16 @@
             
         }
         else{
-            
+            ?>
+                <script>
+                    setTimeout(() => {
+                        alert("Value doesn't passed properly");
+                    }, 500);
+                    setTimeout(() => {
+                        location.assign('../../index.php');
+                    }, 500);
+                </script>
+            <?php
         }
     }
     else{
