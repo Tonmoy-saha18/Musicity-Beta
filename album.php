@@ -64,7 +64,6 @@ else {
 						<input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
 					</div>
 					<div>
-						
 						<button class='btn buybtn' name='purchase' onclick='PurchaseSong(" . $albumSong->getId() . ", " . $userLoggedIn->getUserBalance() . ");'>Purchase</button>
 						<button class='btn reportbtn' name='report' onclick='reportSong( " . $userLoggedIn->getUserId() . ", " . $albumSong->getId() . " );'>Report</button>
 					</div>
