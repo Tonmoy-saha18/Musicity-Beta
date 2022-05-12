@@ -23,7 +23,7 @@
 				<span role="link" tabindex="0" onclick="openPage('home.php')" class="navItemLink">Browse Songs</span>
 			</div>
 			<div class="navItem">
-				<span role="link" tabindex="0" onclick="openPage('home.php')" class="navItemLink">Browse Podcasts</span>
+				<span role="link" tabindex="0" onclick="openPage('phome.php')" class="navItemLink">Browse Podcasts</span>
 			</div>
 			<div class="navItem">
 				<span role="link" tabindex="0" onclick="location.assign('createalbum.php')" class="navItemLink">Create Album</span>
