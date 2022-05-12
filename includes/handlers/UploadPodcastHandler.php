@@ -4,7 +4,7 @@
     //checking whelter the user is logged in or not
     if(isset($_SESSION['userLoggedIn']) && !empty($_SESSION['userLoggedIn'])){
         //checking whelther all data is recieved or not.
-        if(isset($_POST['title']) && isset($_POST['duration']) && isset($_FILES['file-path']){
+        if(isset($_POST['title']) && isset($_POST['duration']) && isset($_FILES['file-path'])){
             //taking the artist id first
             $name = $_SESSION['userLoggedIn'];
             $query = "SELECT * FROM users WHERE username = '$name'";
@@ -25,7 +25,13 @@
             $from = $podcast['tmp_name'];//taking the temporal podcast path from server
             $podcast_to = "../../assets/podcast/$podcast_name"; //path where the podcast will be uploaded
             $podcast_location = "assets/podcast/$podcast_name";
-        }
+
+            //uploaded file location
+            $insert_details = "INSERT INTO podcasts VALUES(NULL, '$title', '$duration', '$podcast_location', 0, $artistid)";
+            $con->exec($insert_details);
+            move_uploaded_file($from,$podcast_to);
+
+        
             ?>
                 <script>
                     setTimeout(() => {
@@ -42,7 +48,7 @@
         }
         else{
             ?>
-                <script>location.assign('../../upload.php')</script>
+                <script>location.assign('../../uploadpodcast.php')</script>
             <?php
         }  
     }
