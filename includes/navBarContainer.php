@@ -20,13 +20,19 @@
 
 		<div class="group">
 			<div class="navItem">
-				<span role="link" tabindex="0" onclick="openPage('home.php')" class="navItemLink">Browse</span>
+				<span role="link" tabindex="0" onclick="openPage('home.php')" class="navItemLink">Browse Songs</span>
+			</div>
+			<div class="navItem">
+				<span role="link" tabindex="0" onclick="openPage('home.php')" class="navItemLink">Browse Podcasts</span>
 			</div>
 			<div class="navItem">
 				<span role="link" tabindex="0" onclick="location.assign('createalbum.php')" class="navItemLink">Create Album</span>
 			</div>
 			<div class="navItem">
 				<span role="link" tabindex="0"  onclick="location.assign('upload.php')" class="navItemLink">Upload Song</span>
+			</div>
+			<div class="navItem">
+				<span role="link" tabindex="0"  onclick="location.assign('uploadpodcast.php')" class="navItemLink">Upload Podcast</span>
 			</div>
 			<div class="navItem">
 				<span role="link" tabindex="0" onclick="openPage('yourMusic.php')" class="navItemLink">Your Music</span>
