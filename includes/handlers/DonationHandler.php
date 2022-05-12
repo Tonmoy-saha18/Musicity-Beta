@@ -22,6 +22,30 @@
             foreach($table AS $artist){
                 $artistid = $artist['artist_id'];
             }
+
+            //Inserting donation details to donation table
+            $query = "INSERT INTO donation Values(NULL, $userid, $podid, 20)";
+            $con->exec($query);
+
+            //updating user account
+            $user_updateamount = $user_amount - 20;
+            $query = "UPDATE users SET amount=$user_updateamount WHERE id=$userid";
+            $con->exec($query);
+
+            //taking artist amount
+            $query = "SELECT * FROM users WHERE id=$artistid";
+            $returnobj = $con->query($query);
+            $table = $returnobj->fetchAll();
+            foreach($table as $artist){
+                $amount = $artist['amount'];
+            }
+
+            //updating artist amount 
+            $amount = $amount + 20;
+            $query = "UPDATE users SET amount=$amount WHERE id=$artistid";
+            $con->exec($query);
+
+            
         }
     }
     else{
