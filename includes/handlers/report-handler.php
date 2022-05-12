@@ -13,7 +13,14 @@
             $query = "INSERT INTO reports VALUES(NULL,$userid,$song_id,'$date','$message')";
             $con->exec($query);
             ?>
-                
+                <script>
+                    setTimeout(() => {
+                        alert("Reported the song successfully");
+                    }, 500);
+                    setTimeout(() => {
+                        location.assign('../../index.php');
+                    }, 500);
+                </script>
             <?php
         }
         else{
