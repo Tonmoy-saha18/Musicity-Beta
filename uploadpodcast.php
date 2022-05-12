@@ -19,6 +19,7 @@
             <link rel="stylesheet" href="assets/css/uploadpodcast.css">
         </head>
         <body>
+        <a href="index.php" style="cursor: pointer; text-decoration: none; background-color:transparent; color:white; margin:10px; padding:7px; position:fixed; border:2px solid green; border-radius:10px;"><i class="fas fa-backward"></i> Back </a>
             <div class='login'>
                 <h2>Upload Podcast</h2>
                 <form action="includes/handlers/UploadPodcastHandler.php" method="post" enctype="multipart/form-data">
