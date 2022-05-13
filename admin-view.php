@@ -62,7 +62,18 @@
                                 <?php
                             }
                         }
-                        
+                        else{
+                            ?>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>No Report Found</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            <?php
+                        }
                     ?>
                
                 </table>    
