@@ -37,7 +37,7 @@
                             <tr>
                                 <td><?php echo $data['id']; ?></td>
                                 <td><?php echo $data['name']; ?></td>
-                                <td><a href="">Delete</a> </td>
+                                <td><a href="includes/handlers/delete-genre-handler.php?id=<?php echo $data['id']; ?>">Delete</a> </td>
                             </tr>
                         <?php
                         }
