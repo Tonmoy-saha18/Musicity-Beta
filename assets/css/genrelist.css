@@ -1,0 +1,35 @@
+table {
+  width: 80%;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.table {
+  width: 80vw;
+  height: 100vh;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+table,
+th,
+td {
+  border: 2px solid gray;
+  padding: 10px;
+  text-align: center;
+}
+tr {
+  font-weight: 500;
+}
+table tr:hover {
+  background-color: rgb(37, 136, 179);
+  cursor: pointer;
+}
+.buttoncontainer {
+  width: 15vw;
+  margin-top: 45vh;
+}
+.btn {
+  margin-left: 10vw;
+  width: 180px;
+  position: fixed;
+}

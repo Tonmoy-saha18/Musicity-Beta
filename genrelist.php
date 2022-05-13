@@ -27,6 +27,7 @@
                 <table>
                     <th>Genre Id</th>
                     <th>Genre Name</th>
+                    <th>     </th>
                     <?php
                         $query = "SELECT * FROM genre";
                         $retrurnobj = $con->query($query);
@@ -36,6 +37,7 @@
                             <tr>
                                 <td><?php echo $data['id']; ?></td>
                                 <td><?php echo $data['name']; ?></td>
+                                <td><a href="">Delete</a> </td>
                             </tr>
                         <?php
                         }
