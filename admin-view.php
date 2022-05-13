@@ -37,7 +37,34 @@
                         <th>Reporter Message</th>
                         <th>Decissions</th>
                     </tr>
-                                   
+                    <?php
+                        $query = "SELECT * FROM reports ORDER BY report_date DESC";
+                        $returnobj = $con->query($query);
+                        $table = $returnobj->fetchAll();
+                        if($returnobj->rowCount()>0){
+                            foreach($table as $report){
+                                //taking the report details
+                                $id = $report['id'];
+                                $date = $report['report_date'];
+                                $reporter_id = $report['user_id'];
+                                $song_id = $report['song_id'];
+                                $message = $report['message'];
+                           
+                                //taking the song title
+                                $query2 = "SELECT * FROM songs WHERE id=$song_id";
+                                $returnobj2 = $con->query($query2);
+                                $table2 = $returnobj2->fetchAll();
+                                foreach($table2 as $song){
+                                    $song_title = $song['title'];
+                                }
+                                ?>
+                                    
+                                <?php
+                            }
+                        }
+                        
+                    ?>
+               
                 </table>    
  
             </div>
