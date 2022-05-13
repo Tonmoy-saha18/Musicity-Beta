@@ -8,3 +8,16 @@
             $id = $_GET['reportid'];
             $query = "DELETE FROM reports WHERE id=$id";
             $con->exec($query);
+
+            //after deleting the report succesfully it will again go to admin-view page
+            ?>
+                <script>
+                    setTimeout(() => {
+                        alert("reports deleted from the database succesfully");
+                    }, 500);
+                    setTimeout(() => {
+                        location.assign('../../admin-view.php');
+                    }, 500);
+                </script>
+            <?php
+        }
