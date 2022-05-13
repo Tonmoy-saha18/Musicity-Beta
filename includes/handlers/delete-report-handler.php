@@ -21,3 +21,23 @@
                 </script>
             <?php
         }
+
+        else{
+            ?>
+                <script>
+                    setTimeout(() => {
+                        alert("Data does't passed correctly");
+                    }, 500);
+                    setTimeout(() => {
+                        location.assign('../../admin-view.php');
+                    }, 500);
+                </script>
+            <?php
+        }
+    }
+    else{
+        ?>
+            <script>location.assign("../../admin-login.php")</script>
+        <?php
+    }
+?>
