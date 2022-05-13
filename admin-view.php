@@ -24,7 +24,23 @@
                     <a class="navbar-brand" href="includes/handlers/admin-logout-handler.php" style="font-weight: 500;">Logout</a>
                 </div>
             </nav>
-    
+
+            <div class="container-fluid table-container">
+                <h3 style="margin-top:15px; text-align:center; padding:5px; border-bottom:2px solid gray; width:98%; margin-left:12px;"><i class="fas fa-bullhorn"></i> Reports List</h3>
+                <table>
+                    <tr>
+                        <th>Report ID</th>
+                        <th>DateTime of Report</th>
+                        <th>Reporter ID</th>
+                        <th>Reported Song Title</th>
+                        <th>Reported Song ID</th>
+                        <th>Reporter Message</th>
+                        <th>Decissions</th>
+                    </tr>
+                                   
+                </table>    
+ 
+            </div>
             <script>
                 function DeleteSongAndReport(songid,reportid){
                     var flag = confirm("Do you want to delete this song?")
