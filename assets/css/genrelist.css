@@ -21,7 +21,7 @@ tr {
   font-weight: 500;
 }
 table tr:hover {
-  background-color: rgb(37, 136, 179);
+  background-color: rgb(163, 166, 168);
   cursor: pointer;
 }
 .buttoncontainer {
@@ -32,4 +32,10 @@ table tr:hover {
   margin-left: 10vw;
   width: 180px;
   position: fixed;
+}
+.del {
+  text-decoration:none;
+  border:1px solid rgb(18, 17, 17);
+  padding:5px;
+  border-radius: 5px;
 }

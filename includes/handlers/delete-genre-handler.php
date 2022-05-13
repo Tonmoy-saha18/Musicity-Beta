@@ -16,7 +16,7 @@
                         alert("Genre deleted from the database succesfully");
                     }, 500);
                     setTimeout(() => {
-                        location.assign('../../admin-view.php');
+                        location.assign('../../genrelist.php');
                     }, 500);
                 </script>
             <?php
