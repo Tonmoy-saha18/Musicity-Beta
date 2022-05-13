@@ -24,11 +24,38 @@
                 </div>
             </nav>
             <div class="table">
-               
+                <table>
+                    <th>Genre Id</th>
+                    <th>Genre Name</th>
+                    <?php
+                        $query = "SELECT * FROM genre";
+                        $retrurnobj = $con->query($query);
+                        $table = $retrurnobj->fetchAll();
+                        foreach ($table as $data){
+                            ?>
+                            <tr>
+                                <td><?php echo $data['id']; ?></td>
+                                <td><?php echo $data['name']; ?></td>
+                            </tr>
+                        <?php
+                        }
+                    ?>
+                </table>
+                <div class="buttoncontainer">
+                    <button class="btn btn-primary p-2" onclick="GenreCreation();"><i class="fas fa-plus-square"></i> Add genre</button>
+                </div>
                    
             </div>
             <script>
-                
+                function GenreCreation(){
+                    var a = prompt("Enter the genre name:");
+                    if(a === null || a===""){
+                        alert("Genre name can't be null or empty")
+                    }
+                    else{
+                        location.assign("includes/handlers/genrelist-hander.php?gname="+a);
+                    }
+                }
             </script>
            
         </body>
