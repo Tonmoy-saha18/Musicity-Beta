@@ -56,7 +56,28 @@
  
         }
  
-       
+        public static function getPlaylistsDropdown($con, $username) {
+            $dropdown = '<select class="item playlist">
+                            <option value="">Add to playlist</option>';
+ 
+            $query = "SELECT id FROM users WHERE username='$username'";
+            $data  = $con->query($query);
+            $row=$data->fetchAll();
+            $id=$row[0];
+            $ownerid= $id['id'];
+            $query = "SELECT id, title FROM playlist WHERE owner_id='$ownerid'";
+            $data  = $con->query($query);
+            $tabledata=$data->fetchAll();
+            foreach($tabledata AS $row){
+                $id = $row['id'];
+                $name = $row['title'];
+ 
+                $dropdown = $dropdown . "<option value='$id'>$name</option>";
+            }
+ 
+ 
+            return $dropdown . "</select>";
+        }
  
  
  
