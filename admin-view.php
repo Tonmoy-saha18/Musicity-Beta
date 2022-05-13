@@ -58,7 +58,19 @@
                                     $song_title = $song['title'];
                                 }
                                 ?>
-                                    
+                                    <tr>
+                                        <td><?php echo $id; ?></td>
+                                        <td><?php echo $date; ?></td>
+                                        <td><?php echo $reporter_id; ?></td>
+ 
+                                        <td><button style="background-color:transparent; border:0px; font-weight:700; border-bottom:2px solid blue;" class="link" onMouseover="this.style.color='blue'" onMouseOut="this.style.color='black'" onclick="GetSong(<?php echo $song_id; ?>)"><?php echo $song_title; ?></button></td>
+ 
+                                        <td><button style="background-color:transparent; border:0px; font-weight:700; border-bottom:2px solid blue;" class="link" onMouseover="this.style.color='blue'" onMouseOut="this.style.color='black'" onclick="GetSong(<?php echo $song_id; ?>)"><?php echo $song_id; ?></button></td>
+ 
+                                        <td><?php echo $message; ?></td>
+ 
+                                        <td><button class="btn-danger p-1 btn-sm" onclick="DeleteSongAndReport(<?php echo $song_id; ?>,<?php echo $id; ?>);"><i class="fas fa-trash-alt"></i> Delete Song</button> <button class="btn-success p-1 mx-2 btn-sm" onclick="DeleteReport(<?php echo $id; ?>)"><i class="fas fa-window-close"></i> Decline Reports</button></td>
+                                    </tr>
                                 <?php
                             }
                         }
