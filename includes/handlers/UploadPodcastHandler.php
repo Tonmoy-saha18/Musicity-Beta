@@ -13,7 +13,7 @@
             foreach($table AS $user){
                 $artistid = $user['id'];
             }
-
+            $Date = date("Y-m-d h:i:sa");
             //taking the value from user
             $title = $_POST['title'];
             $duration =$_POST['duration'];
@@ -27,7 +27,7 @@
             $podcast_location = "assets/podcast/$podcast_name";
 
             //uploaded file location
-            $insert_details = "INSERT INTO podcasts VALUES(NULL, '$title', '$duration', '$podcast_location', 0, $artistid)";
+            $insert_details = "INSERT INTO podcasts VALUES(NULL, '$title', '$duration', '$podcast_location', 0, $artistid, '$Date')";
             $con->exec($insert_details);
             move_uploaded_file($from,$podcast_to);
 
