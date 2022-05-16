@@ -56,7 +56,7 @@
                   <h1 class="display-5">Wings to the mind</h1>
                   <h1 class="display-5">Flight to the imagination</h1>
                   <h1 class="display-5">And life to everything.</h1>
-                  <a href="signup.php" target="__blank"><button class="btnedit p-3">Get Musicity free for 1 day</button></a>
+                  <a href="#" target="__blank"><button class="btnedit p-3">Watch A Demo Video</button></a>
                 </div>
               </div>
             </section>
