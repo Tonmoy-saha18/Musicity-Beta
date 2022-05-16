@@ -41,10 +41,10 @@
                     <a class="nav-link" href="#contact-us">About Us <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="register.php" target="__blank">Sign Up</a>
+                    <a class="nav-link" href="register.php" target="">Sign Up</a>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="login.php" tabindex="-1" aria-disabled="true" target="__blank">Login</a>
+                    <a class="nav-link" href="login.php" tabindex="-1" aria-disabled="true" target="">Login</a>
                   </li>
                 </ul>
               </div>
@@ -56,7 +56,7 @@
                   <h1 class="display-5">Wings to the mind</h1>
                   <h1 class="display-5">Flight to the imagination</h1>
                   <h1 class="display-5">And life to everything.</h1>
-                  <a href="#" target="__blank"><button class="btnedit p-3">Watch A Demo Video</button></a>
+                  <a href="#" target=""><button class="btnedit p-3">Watch A Demo Video</button></a>
                 </div>
               </div>
             </section>
