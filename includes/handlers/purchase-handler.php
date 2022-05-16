@@ -15,7 +15,7 @@
             //taking the song_id and the playlist_name the user has passed in
             $song_id = $_GET['sid'];
             $playlistname = $_GET['pname'];
-            $query = "SELECT * FROM playlist WHERE title='$playlistname'";
+            $query = "SELECT * FROM playlist WHERE title='$playlistname' AND owner_id=$id";
             $returnobj = $con->query($query);
             if($returnobj->rowCount() > 0){
                 //it ensures that the playlist exist
