@@ -51,6 +51,25 @@ function deletePlaylist(playlistId) {
   }
 }
 
+function showOptionsMenu(button) {
+  var songId = $(button).prevAll(".songId").val();
+  var menu = $(".optionsMenu");
+  var menuWidth = menu.width(); //The width of the menu
+  menu.find(".songId").val(songId);
+
+  var scrollTop = $(window).scrollTop(); //Distance from top of window to top of document
+  var elementOffset = $(button).offset().top; //Distance from top of document
+
+  var top = elementOffset - scrollTop;
+  var left = $(button).position().left;
+
+  menu.css({
+    top: top + "px",
+    left: left - menuWidth + "px",
+    display: "inline",
+  });
+}
+
 function openPage(url) {
   if (timer != null) {
     clearTimeout(timer);
