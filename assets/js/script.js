@@ -51,6 +51,13 @@ function deletePlaylist(playlistId) {
   }
 }
 
+function hideOptionsMenu() {
+  var menu = $(".optionsMenu");
+  if (menu.css("display") != "none") {
+    menu.css("display", "none");
+  }
+}
+
 function showOptionsMenu(button) {
   var songId = $(button).prevAll(".songId").val();
   var menu = $(".optionsMenu");
