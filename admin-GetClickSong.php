@@ -56,6 +56,14 @@
             </div>
 
         </body>
+        <script>
+            function BanMember(song_id){
+                location.assign('includes/handlers/banMemberHandler.php?id='+song_id);
+            }
+            function NoBanned(){
+                location.assign('admin-view.php');
+            }
+        </script>
         </html>
         <?php
     }
