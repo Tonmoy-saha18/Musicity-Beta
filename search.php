@@ -134,7 +134,9 @@ setCaretPosition(input, input.value.length);
                     }
                 }
             }
-        
+            function reportSong(userid,song_id){
+                location.assign("includes/handlers/report-handler.php?userid="+userid+"&songid="+song_id);
+            }
         </script>
  
     </ul>
