@@ -146,7 +146,15 @@ setCaretPosition(input, input.value.length);
  
     <h2>ARTISTS</h2>
  
+    <?php
+    $query = "SELECT id FROM users WHERE CONCAT(first_name,' ',last_name) LIKE '$term%' LIMIT 10";
+    $data= $con->query($query);
+    $row= $data->fetchAll();
+    $artistsQuery=array_column($row, 'id');
     
+ 
+ 
+    ?>
  
  
 </div>
