@@ -11,6 +11,63 @@ $data=$returnobj->fetchAll();
 $resultArray=array_column($data, 'id');
 $jsonArray = json_encode($resultArray);
 ?>
+<script>
+ 
+$(document).ready(function(){
+    var newPlaylist = <?php echo $jsonArray ?>;
+    audioElement = new Audio();
+    setTrack(newPlaylist[0],newPlaylist,false);
+    updateVolumeProgressBar(audioElement.audio);
+ 
+    $(".playbackBar .progressBar").mousedown(function() {
+        mouseDown = true;
+    });
+ 
+    $(".playbackBar .progressBar").mousemove(function(e) {
+        if(mouseDown == true) {
+            //Set time of song, depending on position of mouse
+            timeFromOffset(e, this);
+        }
+    });
+    $(".playbackBar .progressBar").mouseup(function(e) {
+        timeFromOffset(e, this);
+    });
+ 
+    $(".volumeBar .progressBar").mousedown(function() {
+        mouseDown = true;
+    });
+ 
+    $(".volumeBar .progressBar").mousemove(function(e) {
+        if(mouseDown == true) {
+ 
+            var percentage = e.offsetX / $(this).width();
+ 
+            if(percentage >= 0 && percentage <= 1) {
+                audioElement.audio.volume = percentage;
+            }
+        }
+    });
+ 
+    $(".volumeBar .progressBar").mouseup(function(e) {
+        var percentage = e.offsetX / $(this).width();
+ 
+        if(percentage >= 0 && percentage <= 1) {
+            audioElement.audio.volume = percentage;
+        }
+    });
+ 
+    $(document).mouseup(function() {
+        mouseDown = false;
+    });
+ 
+});
+function timeFromOffset(mouse, progressBar) {
+    var percentage = mouse.offsetX / $(progressBar).width() * 100;
+    var seconds = audioElement.audio.duration * (percentage / 100);
+    audioElement.setTime(seconds);
+}
+
+</script>
 <div id="nowPlayingBarContainer">
  
     <div id="nowPlayingBar">
