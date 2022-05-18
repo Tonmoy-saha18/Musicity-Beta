@@ -62,7 +62,24 @@ setCaretPosition(input, input.value.length);
  
 <?php if($term == "") exit(); ?>
  
-
+<div class="tracklistContainer borderBottom">
+    <h2>SONGS</h2>
+    <ul class="tracklist">
+       
+        <?php
+        $query = "SELECT id FROM songs WHERE title LIKE '$term%' LIMIT 10";
+        $data= $con->query($query);
+        $row= $data->fetchAll();
+        $songsQuery=array_column($row, 'id');
+        if(empty($songsQuery)) {
+            echo "<span class='noResults'>No songs found matching " . $term . "</span>";
+        }
+       
+ 
+ 
+ 
+    </ul>
+</div>
  
  
  
