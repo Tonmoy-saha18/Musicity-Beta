@@ -204,7 +204,7 @@ function LikePodcast(podId) {
   });
 }
 
-function UnLikePodcast(pId) {
+function UnLikePodcast(podId) {
   $.post("includes/handlers/ajax/unlikePodcast.php", {
     podId: podId,
   }).done(function (error) {
