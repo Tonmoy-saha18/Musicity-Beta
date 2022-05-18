@@ -153,7 +153,25 @@ setCaretPosition(input, input.value.length);
         if(empty($table)) {
         echo "<span class='noResults'>No Albums found matching " . $term . "</span>";
         }
-        
+        foreach($table as $row) {
+           
+ 
+            echo "<div class='gridViewItem'>
+                    <span role='link' tabindex='0' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
+                        <img src='" . $row['artwork_path'] . "'>
+ 
+                        <div class='gridViewInfo'>"
+                            . $row['title'] .
+                        "</div>
+                    </span>
+ 
+                </div>";
+ 
+               
+ 
+ 
+ 
+        }
     ?>
  
 </div>
