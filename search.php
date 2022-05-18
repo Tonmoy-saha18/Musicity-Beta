@@ -120,7 +120,21 @@ setCaretPosition(input, input.value.length);
         <script>
             var tempSongIds = '<?php echo json_encode($songsQuery); ?>';
             tempPlaylist = JSON.parse(tempSongIds);
-            
+            function PurchaseSong(song_id,amount){
+                if(amount<30){
+                    alert("You don't have enough money in your account to purchase the song");
+                }
+                else{
+                    var play_name = window.prompt("Enter The Playlist Name Where You want Save That Song");
+                    if(play_name!=null && play_name!=""){
+                        location.assign("includes/handlers/purchase-handler.php?sid="+song_id+"&pname="+play_name);
+                    }
+                    else{
+                        alert("You Haven't enter a valid name")
+                    }
+                }
+            }
+        
         </script>
  
     </ul>
