@@ -564,3 +564,15 @@ input:focus {
   background-color: rgb(206, 39, 39);
   margin-left: 10px;
 }
+.liketbtn{
+  background-color: rgb(69, 49, 49);
+  margin-left: 10px;
+  color:whitesmoke;
+}
+.unliketbtn{
+  background-color: rgb(126, 164, 207);
+  margin-left: 10px;
+}
+.donate{
+  background-color: rgb(64, 255, 0);
+}

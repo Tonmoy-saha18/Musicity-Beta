@@ -49,16 +49,16 @@
 					if($table->rowCount()==1){
 						?>
 						<div>
-							<button class='btn buybtn' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
-							<button class='btn reportbtn' name='purchase' onclick="UnLikePodcast(<?php echo $podId['id']; ?>)">UnLike</button>
+							<button class='btn donate' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
+							<button class='btn unliketbtn' name='purchase' onclick="UnLikePodcast(<?php echo $podId['id']; ?>)">Unlike</button>
 						</div>
 						<?php
 					}
 					else{
 						?>
 						<div>
-							<button class='btn buybtn' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
-							<button class='btn reportbtn' name='purchase' onclick="LikePodcast(<?php echo $podId['id']; ?>)">Like</button>
+							<button class='btn donate' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
+							<button class='btn liketbtn' name='purchase' onclick="LikePodcast(<?php echo $podId['id']; ?>)">Like</button>
 						</div>
 						<?php
 					}
