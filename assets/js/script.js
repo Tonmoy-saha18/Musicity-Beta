@@ -198,9 +198,22 @@ function LikePodcast(podId) {
     //   alert(error);
     //   return;
     // }
- 
+
     //do something when ajax returns
     openPage("phome.php");
   });
 }
 
+function UnLikePodcast(pId) {
+  $.post("includes/handlers/ajax/unlikePodcast.php", {
+    podId: podId,
+  }).done(function (error) {
+    // if (error != "") {
+    //   alert(error);
+    //   return;
+    // }
+
+    //do something when ajax returns
+    openPage("phome.php");
+  });
+}
