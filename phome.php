@@ -26,9 +26,18 @@
         $podcastArray = $returnobj->fetchAll();
 		$i = 1;
 		foreach($podcastArray as $podId) {
-			$pId = $podId['id'];
+			$artistid = $podId['artist_id']; // taking artistid
+			$pId = $podId['id']; //taking podcastid
+
+			//now taking the whelther the podcast is liked or not
 			$checkquery = "SELECT * FROM likedpodcast WHERE pod_id=$pId AND user_id=$id";
 			$table = $con->query($checkquery);
+
+			//Now taking the username 
+			$userquery = "SELECT * FROM users WHERE id=$artistid";
+			$usertable = $con->query($userquery);
+			$obj = $usertable->fetch();
+			$user = $obj['username'];
             ?>
             <li class='tracklistRow'>
                     <div class='trackCount'>
@@ -39,7 +48,7 @@
 
 					<div class='trackInfo'>
 						<span class='trackName'><?php echo $podId['title']; ?></span>
-						<span class='artistName'><?php echo $_GET['userLoggedIn']; ?></span>
+						<span class='artistName'><?php echo $user; ?></span>
 					</div>
 
 					<div class='trackOptions'>
@@ -75,12 +84,16 @@
 		?>
         <script>
             function Donate(podcastid, amount){
-                if(amount<20){
-                    alert("You don't have enough money in your account");
-                }
-                else{
-                    location.assign("includes/handlers/DonationHandler.php?id="+podcastid);
-                }
+				var check = confirm("Are You Sure You Want to Donate 20 Taka?");
+
+				if(check==true){
+					if(amount<20){
+                    	alert("You don't have enough money in your account");
+                	}
+					else{
+                    	location.assign("includes/handlers/DonationHandler.php?id="+podcastid);
+                	}
+				}
             }
 		</script>
 
