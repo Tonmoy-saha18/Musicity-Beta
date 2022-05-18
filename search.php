@@ -151,6 +151,10 @@ setCaretPosition(input, input.value.length);
     $data= $con->query($query);
     $row= $data->fetchAll();
     $artistsQuery=array_column($row, 'id');
+    if(empty($artistsQuery)) {
+        echo "<span class='noResults'>No artists found matching " . $term . "</span>";
+    }
+ 
     
  
  
