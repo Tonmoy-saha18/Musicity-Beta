@@ -189,3 +189,18 @@ function updatePassword(
       .text(response);
   });
 }
+
+function LikePodcast(podId) {
+  $.post("includes/handlers/ajax/likePodcast.php", {
+    podId: podId,
+  }).done(function (error) {
+    // if (error != "") {
+    //   alert(error);
+    //   return;
+    // }
+ 
+    //do something when ajax returns
+    openPage("phome.php");
+  });
+}
+
