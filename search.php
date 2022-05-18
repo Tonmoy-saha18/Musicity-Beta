@@ -141,6 +141,16 @@ setCaretPosition(input, input.value.length);
  
     </ul>
 </div>
+
+<div class="artistsContainer borderBottom">
+ 
+    <h2>ARTISTS</h2>
+ 
+    
+ 
+ 
+</div>
+ 
  
 <div class="gridViewContainer">
     <h2>ALBUMS</h2>
