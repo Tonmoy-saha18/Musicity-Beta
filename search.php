@@ -144,7 +144,17 @@ setCaretPosition(input, input.value.length);
  
 <div class="gridViewContainer">
     <h2>ALBUMS</h2>
-    
+    <?php
+       
+ 
+        $albumQuery = "SELECT * FROM albums WHERE title LIKE '$term%' LIMIT 10";
+        $data = $con->query($albumQuery);
+            $table = $data->fetchAll();
+        if(empty($table)) {
+        echo "<span class='noResults'>No Albums found matching " . $term . "</span>";
+        }
+        
+    ?>
  
 </div>
  
