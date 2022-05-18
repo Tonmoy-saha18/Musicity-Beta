@@ -44,6 +44,16 @@
                     }
                 ?>
             </div>
+            <div class="confirmform">
+                <div class="innerform">
+                    <h6>
+                        Do you want to ban this member?
+                    </h6>
+                    <button class="btn-danger p-1 btn-sm" onclick="BanMember(<?php echo $song_id; ?>);"><i class="fas fa-trash-alt"></i> Yes</button>
+                    <button class="btn-success p-1 mx-2 btn-sm" onclick="NoBanned()"><i class="fas fa-window-close"></i> No</button>
+                </div>
+            </div>
+
         </body>
         </html>
         <?php
