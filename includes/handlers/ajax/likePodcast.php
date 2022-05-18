@@ -9,7 +9,12 @@ if(isset($_POST['podId'])) {
     $query = "SELECT * FROM users WHERE username='$username'";
     $returnobj = $con->query($query);
     $user = $returnobj->fetchAll();
-    
+    foreach ($user as $us) {
+        $user_id = $us['id'];
+    }
+ 
+    $likeQuery = "INSERT INTO likedpodcast VALUES(NULL, $playlistId, $user_id)";
+    $con->exec($likeQuery);
  
 }
 else {
