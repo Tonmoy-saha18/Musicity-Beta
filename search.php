@@ -60,6 +60,8 @@ setCaretPosition(input, input.value.length);
  
 </script>
  
+<?php if($term == "") exit(); ?>
+ 
 
  
  
