@@ -45,6 +45,7 @@
 					</div>
                     <div>
 						<button class='btn buybtn' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
+						<button class='btn reportbtn' name='purchase' onclick="LikePodcast(<?php echo $podId['id']; ?>)">Like</button>
 					</div>
 					<div class='trackDuration'>
 						<span class='duration'><?php echo $podId['duration']; ?></span>
