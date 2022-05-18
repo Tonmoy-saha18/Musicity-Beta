@@ -26,7 +26,9 @@
         $podcastArray = $returnobj->fetchAll();
 		$i = 1;
 		foreach($podcastArray as $podId) {
-			
+			$pId = $podId['id'];
+			$checkquery = "SELECT * FROM likedpodcast WHERE pod_id=$pId AND user_id=$id";
+			$table = $con->query($checkquery);
             ?>
             <li class='tracklistRow'>
                     <div class='trackCount'>
@@ -43,10 +45,24 @@
 					<div class='trackOptions'>
 						<input type='hidden' class='songId' value="<?php echo $podId['id']; ?>">
 					</div>
-                    <div>
-						<button class='btn buybtn' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
-						<button class='btn reportbtn' name='purchase' onclick="LikePodcast(<?php echo $podId['id']; ?>)">Like</button>
-					</div>
+					<?php
+					if($table->rowCount()==1){
+						?>
+						<div>
+							<button class='btn buybtn' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
+							<button class='btn reportbtn' name='purchase' onclick="UnLikePodcast(<?php echo $podId['id']; ?>)">UnLike</button>
+						</div>
+						<?php
+					}
+					else{
+						?>
+						<div>
+							<button class='btn buybtn' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
+							<button class='btn reportbtn' name='purchase' onclick="LikePodcast(<?php echo $podId['id']; ?>)">Like</button>
+						</div>
+						<?php
+					}
+					?>
 					<div class='trackDuration'>
 						<span class='duration'><?php echo $podId['duration']; ?></span>
 					</div>
