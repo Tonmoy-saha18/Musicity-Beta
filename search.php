@@ -155,7 +155,24 @@ setCaretPosition(input, input.value.length);
         echo "<span class='noResults'>No artists found matching " . $term . "</span>";
     }
  
-    
+    foreach($artistsQuery as $row) {
+ 
+        $artistFound = new Artist($con, $row);
+ 
+        echo "<div class='searchResultRow'>
+                <div class='artistName'>
+ 
+                    <span role='link' tabindex='0' onclick='openPage(\"artist.php?id=" . $artistFound->getId() ."\")'>
+                    "
+                    . $artistFound->getName() .
+                    "
+                    </span>
+ 
+                </div>
+ 
+            </div>";
+ 
+    }
  
  
     ?>
