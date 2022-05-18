@@ -117,7 +117,11 @@ setCaretPosition(input, input.value.length);
  
         ?>
  
-      
+        <script>
+            var tempSongIds = '<?php echo json_encode($songsQuery); ?>';
+            tempPlaylist = JSON.parse(tempSongIds);
+            
+        </script>
  
     </ul>
 </div>
