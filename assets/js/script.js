@@ -146,7 +146,24 @@ function removeFromPlaylist(button, playlistId) {
     openPage("playlist.php?id=" + playlistId);
   });
 }
-
+function updateTimeProgressBar(audio) {
+  $(".progressTime.current").text(formatTime(audio.currentTime));
+  $(".progressTime.remaining").text(
+    formatTime(audio.duration - audio.currentTime)
+  );
+ 
+  var progress = (audio.currentTime / audio.duration) * 100;
+  $(".playbackBar .progress").css("width", progress + "%");
+}
+ 
+function updateVolumeProgressBar(audio) {
+  var volume = audio.volume * 100;
+  $(".volumeBar .progress").css("width", volume + "%");
+}
+ 
+function playFirstSong() {
+  setTrack(tempPlaylist[0], tempPlaylist, true);
+}
 function updateEmail(emailClass) {
   var emailValue = $("." + emailClass).val();
 
