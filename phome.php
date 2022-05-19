@@ -60,6 +60,7 @@
 						<div>
 							<button class='btn donate' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
 							<button class='btn unliketbtn' name='purchase' onclick="UnLikePodcast(<?php echo $podId['id']; ?>)">Unlike</button>
+							<button class='btn ratebtn' name='purchase' onclick="UnLikePodcast(<?php echo $podId['id']; ?>)">Rate</button>
 						</div>
 						<?php
 					}
@@ -68,6 +69,7 @@
 						<div>
 							<button class='btn donate' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
 							<button class='btn liketbtn' name='purchase' onclick="LikePodcast(<?php echo $podId['id']; ?>)">Like</button>
+							<button class='btn ratebtn' name='purchase' onclick="RatePodcast(<?php echo $podId['id']; ?>)">Rate</button>
 						</div>
 						<?php
 					}

@@ -576,3 +576,7 @@ input:focus {
 .donate{
   background-color: rgb(64, 255, 0);
 }
+.ratebtn{
+  background-color: rgb(205, 209, 71);
+  margin-left: 10px;
+}
