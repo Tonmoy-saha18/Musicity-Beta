@@ -48,6 +48,14 @@ else {
 			$albumArtist = $albumSong->getArtist();
 			$charge = $albumSong->getCharge();
 			
+			//now taking all details of that song
+			$id = $songId['id'];
+			$songquery = "SELECT * FROM songs WHERE id=$id";
+			$returnobj = $con->query($songquery);
+			$songInfo = $returnobj->fetch();
+
+			//taking the permium details of that song
+			$charge = $songInfo['set_charge'];
 			?>
 				<li class='tracklistRow'>
 					<div class='trackCount'>
@@ -64,14 +72,26 @@ else {
 					<div class='trackOptions'>
 						<input type='hidden' class='songId' value="<?php echo $albumSong->getId(); ?>">
 					</div>
-					<div>
-						<button class='btn buybtn' name='purchase' onclick="PurchaseSong(<?php echo $albumSong->getId(); ?>, <?php echo $userLoggedIn->getUserBalance(); ?>);">Purchase</button>
-						<button class='btn reportbtn' name='report' onclick="reportSong( <?php echo $userLoggedIn->getUserId(); ?>, <?php echo $albumSong->getId(); ?>);">Report</button>
-					</div>
+					<?php
+						if($charge == 1){
+							?>
+								<div>
+									<button class='btn buybtn' name='purchase' onclick="PurchaseSong(<?php echo $albumSong->getId(); ?>, <?php echo $userLoggedIn->getUserBalance(); ?>);">Purchase</button>
+									<button class='btn reportbtn' name='report' onclick="reportSong( <?php echo $userLoggedIn->getUserId(); ?>, <?php echo $albumSong->getId(); ?>);">Report</button>
+								</div>
+							<?php
+						}
+						else{
+							?>
+								<div>
+									<button class='btn reportbtn' name='report' onclick="reportSong( <?php echo $userLoggedIn->getUserId(); ?>, <?php echo $albumSong->getId(); ?>);">Report</button>
+								</div>
+							<?php
+						}
+					?>
 					<div class='trackDuration'>
-						<span class='duration'><?php $albumSong->getDuration() ?></span>
+						<span class='duration'><?php echo $albumSong->getDuration(); ?></span>
 					</div>
-
 
 				</li>
 			<?php
