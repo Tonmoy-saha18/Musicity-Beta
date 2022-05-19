@@ -211,6 +211,52 @@ function updatePassword(
   });
 }
 
+function Audio() {
+  this.currentlyPlaying;
+  this.audio = document.createElement("audio");
+  this.audio.addEventListener("ended", function () {
+    nextSong();
+  });
+ 
+  $("#nowPlayingBarContainer").on(
+    "mousedown touchstart mousemove touchmove",
+    function (e) {
+      e.preventDefault();
+    }
+  );
+ 
+  this.audio.addEventListener("canplay", function () {
+    //'this' refers to the object that the event was called on
+    var duration = formatTime(this.duration);
+    $(".progressTime.remaining").text(duration);
+  });
+ 
+  this.audio.addEventListener("timeupdate", function () {
+    if (this.duration) {
+      updateTimeProgressBar(this);
+    }
+  });
+ 
+  this.audio.addEventListener("volumechange", function () {
+    updateVolumeProgressBar(this);
+  });
+ 
+  this.setTrack = function (path) {
+    this.audio.src = path;
+  };
+ 
+  this.play = function () {
+    this.audio.play();
+  };
+ 
+  this.pause = function () {
+    this.audio.pause();
+  };
+  this.setTime = function (seconds) {
+    this.audio.currentTime = seconds;
+  };
+}
+
 function LikePodcast(podId) {
   $.post("includes/handlers/ajax/likePodcast.php", {
     podId: podId,
