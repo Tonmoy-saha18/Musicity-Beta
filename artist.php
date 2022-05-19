@@ -5,6 +5,7 @@ if(isset($_GET['id'])) {
 	$artistId = $_GET['id'];
 	if(isset($_GET['userLoggedIn'])) {
 		$userLoggedIn = new User($con, $_GET['userLoggedIn']);
+		$id = $userLoggedIn->getUserId();
 	}
 	else {
 
@@ -54,31 +55,51 @@ $artist = new Artist($con, $artistId);
 			$albumSong = new Song($con, $songId);
 			$albumArtist = $albumSong->getArtist();
 
-			echo "<li class='tracklistRow'>
+			//taking song details
+			$songquery = "SELECT * FROM songs WHERE id=$songId";
+			$returnobj = $con->query($songquery);
+			$songInfo = $returnobj->fetch();
+			
+			$charge = $songInfo['set_charge'];
+			?>
+				<li class='tracklistRow'>
 					<div class='trackCount'>
-						<img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'>
-						<span class='trackNumber'>$i</span>
+						<img class='play' src='assets/images/icons/play-white.png' onclick="setTrack(<?php echo $albumSong->getId(); ?>, tempPlaylist, true)">
+						<span class='trackNumber'><?php echo $i; ?></span>
 					</div>
 
 
 					<div class='trackInfo'>
-						<span class='trackName'>" . $albumSong->getTitle() . "</span>
-						<span class='artistName'>" . $albumArtist->getName() . "</span>
+						<span class='trackName'><?php echo $albumSong->getTitle(); ?></span>
+						<span class='artistName'><?php echo $albumArtist->getName(); ?></span>
 					</div>
 
 					<div class='trackOptions'>
-						<input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
+						<input type='hidden' class='songId' value="<?php echo $albumSong->getId(); ?>">
 					</div>
-					<div>
-						<button class='btn buybtn' name='purchase' onclick='PurchaseSong(" . $albumSong->getId() . ", " . $userLoggedIn->getUserBalance() . ");'> Purchase</button>
-						<button class='btn reportbtn' name='report' onclick='reportSong( " . $userLoggedIn->getUserId() . ", " . $albumSong->getId() . " )'>Report</button>
-					</div>
+					<?php
+						if($charge == 1 && $id != $albumArtist){
+							?>
+								<div>
+									<button class='btn buybtn' name='purchase' onclick="PurchaseSong(<?php echo $albumSong->getId(); ?>, <?php echo $userLoggedIn->getUserBalance(); ?>);">Purchase</button>
+									<button class='btn reportbtn' name='report' onclick="reportSong( <?php echo $userLoggedIn->getUserId(); ?>, <?php echo $albumSong->getId(); ?>);">Report</button>
+								</div>
+							<?php
+						}
+						else{
+							?>
+								<div>
+									<button class='btn reportbtn' name='report' onclick="reportSong( <?php echo $userLoggedIn->getUserId(); ?>, <?php echo $albumSong->getId(); ?>);">Report</button>
+								</div>
+							<?php
+						}
+					?>
 					<div class='trackDuration'>
-						<span class='duration'>" . $albumSong->getDuration() . "</span>
+						<span class='duration'><?php echo $albumSong->getDuration(); ?></span>
 					</div>
 
-
-				</li>";
+				</li>
+			<?php
 
 			$i = $i + 1;
 		}
