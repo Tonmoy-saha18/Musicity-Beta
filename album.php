@@ -48,31 +48,33 @@ else {
 			$albumArtist = $albumSong->getArtist();
 			$charge = $albumSong->getCharge();
 			
-			echo "<li class='tracklistRow'>
+			?>
+				<li class='tracklistRow'>
 					<div class='trackCount'>
-						<img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'>
-						<span class='trackNumber'>$i</span>
+						<img class='play' src='assets/images/icons/play-white.png' onclick="setTrack(<?php echo $albumSong->getId(); ?>, tempPlaylist, true)">
+						<span class='trackNumber'><?php echo $i; ?></span>
 					</div>
 
 
 					<div class='trackInfo'>
-						<span class='trackName'>" . $albumSong->getTitle() . "</span>
-						<span class='artistName'>" . $albumArtist->getName() . "</span>
+						<span class='trackName'><?php echo $albumSong->getTitle(); ?></span>
+						<span class='artistName'><?php echo $albumArtist->getName(); ?></span>
 					</div>
 
 					<div class='trackOptions'>
-						<input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
+						<input type='hidden' class='songId' value="<?php echo $albumSong->getId(); ?>">
 					</div>
 					<div>
-						<button class='btn buybtn' name='purchase' onclick='PurchaseSong(" . $albumSong->getId() . ", " . $userLoggedIn->getUserBalance() . ");'>Purchase</button>
-						<button class='btn reportbtn' name='report' onclick='reportSong( " . $userLoggedIn->getUserId() . ", " . $albumSong->getId() . " );'>Report</button>
+						<button class='btn buybtn' name='purchase' onclick="PurchaseSong(<?php echo $albumSong->getId(); ?>, <?php echo $userLoggedIn->getUserBalance(); ?>);">Purchase</button>
+						<button class='btn reportbtn' name='report' onclick="reportSong( <?php echo $userLoggedIn->getUserId(); ?>, <?php echo $albumSong->getId(); ?>);">Report</button>
 					</div>
 					<div class='trackDuration'>
-						<span class='duration'>" . $albumSong->getDuration() . "</span>
+						<span class='duration'><?php $albumSong->getDuration() ?></span>
 					</div>
 
 
-				</li>";
+				</li>
+			<?php
 
 			$i = $i + 1;
 		}
