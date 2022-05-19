@@ -151,16 +151,16 @@ function updateTimeProgressBar(audio) {
   $(".progressTime.remaining").text(
     formatTime(audio.duration - audio.currentTime)
   );
- 
+
   var progress = (audio.currentTime / audio.duration) * 100;
   $(".playbackBar .progress").css("width", progress + "%");
 }
- 
+
 function updateVolumeProgressBar(audio) {
   var volume = audio.volume * 100;
   $(".volumeBar .progress").css("width", volume + "%");
 }
- 
+
 function playFirstSong() {
   setTrack(tempPlaylist[0], tempPlaylist, true);
 }
@@ -217,38 +217,38 @@ function Audio() {
   this.audio.addEventListener("ended", function () {
     nextSong();
   });
- 
+
   $("#nowPlayingBarContainer").on(
     "mousedown touchstart mousemove touchmove",
     function (e) {
       e.preventDefault();
     }
   );
- 
+
   this.audio.addEventListener("canplay", function () {
     //'this' refers to the object that the event was called on
     var duration = formatTime(this.duration);
     $(".progressTime.remaining").text(duration);
   });
- 
+
   this.audio.addEventListener("timeupdate", function () {
     if (this.duration) {
       updateTimeProgressBar(this);
     }
   });
- 
+
   this.audio.addEventListener("volumechange", function () {
     updateVolumeProgressBar(this);
   });
- 
+
   this.setTrack = function (path) {
     this.audio.src = path;
   };
- 
+
   this.play = function () {
     this.audio.play();
   };
- 
+
   this.pause = function () {
     this.audio.pause();
   };

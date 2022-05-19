@@ -377,7 +377,9 @@ body {
   float: left;
   text-align: right;
 }
-
+.rating{
+  float:left;
+}
 .tracklistRow .trackInfo .trackName {
   color: #fff;
   margin-bottom: 7px;

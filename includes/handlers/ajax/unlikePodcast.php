@@ -1,10 +1,18 @@
 <?php
+session_start();
 include("../../config.php");
  
 if(isset($_POST['podId'])) {
     $playlistId = $_POST['podId'];
- 
-    $likeQuery = "DELETE FROM likedpodcast WHERE pod_id=$playlistId";
+    //taking user id
+    $username = $_SESSION['userLoggedIn'];
+    $query = "SELECT * FROM users WHERE username='$username'";
+    $returnobj = $con->query($query);
+    $user = $returnobj->fetchAll();
+    foreach ($user as $us) {
+        $user_id = $us['id'];
+    }
+    $likeQuery = "DELETE FROM likedpodcast WHERE pod_id=$playlistId AND user_id=$user_id";
     $con->exec($likeQuery);
  
 }

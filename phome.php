@@ -17,7 +17,7 @@
 		<?php
         $query = "SELECT * FROM users WHERE username='$username'";
         $returnobj = $con->query($query);
-        foreach ($returnobj as $table){
+        foreach ($returnobj->fetchAll() as $table){
             $id = $table['id'];
             $amount = $table['amount'];
         }
@@ -55,12 +55,12 @@
 						<input type='hidden' class='songId' value="<?php echo $podId['id']; ?>">
 					</div>
 					<?php
-					if($table->rowCount()==1){
+					if($table->rowCount()>0){
 						?>
 						<div>
 							<button class='btn donate' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
-							<button class='btn unliketbtn' name='purchase' onclick="UnLikePodcast(<?php echo $podId['id']; ?>)">Unlike</button>
-							<button class='btn ratebtn' name='purchase' onclick="UnLikePodcast(<?php echo $podId['id']; ?>)">Rate</button>
+							<button class='btn unliketbtn' name='unlike' onclick="UnLikePodcast(<?php echo $podId['id']; ?>)">Unlike</button>
+							<button class='btn ratebtn' name='rate' onclick="RatePodcast(<?php echo $podId['id']; ?>)">Rate</button>
 						</div>
 						<?php
 					}
@@ -68,13 +68,24 @@
 						?>
 						<div>
 							<button class='btn donate' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
-							<button class='btn liketbtn' name='purchase' onclick="LikePodcast(<?php echo $podId['id']; ?>)">Like</button>
-							<button class='btn ratebtn' name='purchase' onclick="RatePodcast(<?php echo $podId['id']; ?>)">Rate</button>
+							<button class='btn liketbtn' name='like' onclick="LikePodcast(<?php echo $podId['id']; ?>)">Like</button>
+							<button class='btn ratebtn' name='rate' onclick="RatePodcast(<?php echo $podId['id']; ?>)">Rate</button>
 						</div>
 						<?php
 					}
 					?>
 					<div class='trackDuration'>
+						<?php
+							$id = $podId['id'];
+							$ratingquery = "SELECT AVG(raing) AS rating, COUNT(*) AS num_people FROM ratepodcast WHERE pod_id =$id";
+							$rating = $con->query($ratingquery);
+							$rat = $rating->fetch();
+							$rating = $rat['rating'];
+							$people = $rat['num_people'];
+							?>
+								<span  class='rating'>Rating <?php echo sprintf('%0.2f', round($rating, 2)); ?>(<?php echo $people; ?>)</span>
+							<?php
+						?>
 						<span class='duration'><?php echo $podId['duration']; ?></span>
 					</div>
             </li>
