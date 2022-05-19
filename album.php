@@ -86,6 +86,7 @@ else {
 							?>
 								<div>
 									<button class='btn buybtn' name='purchase' onclick="PurchaseSong(<?php echo $albumSong->getId(); ?>, <?php echo $userLoggedIn->getUserBalance(); ?>);">Purchase</button>
+									<button class='btn liketbtn' name='purchase' onclick="LikeSong(<?php echo $albumSong->getId(); ?>)">Like</button>
 									<button class='btn reportbtn' name='report' onclick="reportSong( <?php echo $userLoggedIn->getUserId(); ?>, <?php echo $albumSong->getId(); ?>);">Report</button>
 								</div>
 							<?php
@@ -93,6 +94,7 @@ else {
 						else{
 							?>
 								<div>
+									<button class='btn liketbtn' name='purchase' onclick="LikeSong(<?php echo $albumSong->getId(); ?>)">Like</button>
 									<button class='btn reportbtn' name='report' onclick="reportSong( <?php echo $userLoggedIn->getUserId(); ?>, <?php echo $albumSong->getId(); ?>);">Report</button>
 								</div>
 							<?php
