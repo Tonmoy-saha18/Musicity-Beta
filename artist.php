@@ -78,7 +78,7 @@ $artist = new Artist($con, $artistId);
 						<input type='hidden' class='songId' value="<?php echo $albumSong->getId(); ?>">
 					</div>
 					<?php
-						if($charge == 1 && $id != $albumArtist){
+						if($charge == 1 && $id != $albumArtist->getId()){
 							?>
 								<div>
 									<button class='btn buybtn' name='purchase' onclick="PurchaseSong(<?php echo $albumSong->getId(); ?>, <?php echo $userLoggedIn->getUserBalance(); ?>);">Purchase</button>
