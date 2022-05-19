@@ -41,6 +41,9 @@ else {
 		<?php
 		$songIdArray = $album->getSongIds();
 
+		//taking user id details into variable userId
+		$userId = $userLoggedIn->getUserId();
+
 		$i = 1;
 		foreach($songIdArray as $songId) {
 
@@ -56,6 +59,12 @@ else {
 
 			//taking the permium details of that song
 			$charge = $songInfo['set_charge'];
+			$album_id = $songInfo['album_id'];
+
+			//taking artist detils from album table
+			$albumquery = "SELECT * FROM albums WHERE id=$album_id";
+			$album = $con->query($albumquery)->fetch();
+			$artistId = $album['artist_id'];
 			?>
 				<li class='tracklistRow'>
 					<div class='trackCount'>
@@ -73,7 +82,7 @@ else {
 						<input type='hidden' class='songId' value="<?php echo $albumSong->getId(); ?>">
 					</div>
 					<?php
-						if($charge == 1){
+						if($charge == 1 && $userId != $artistId){
 							?>
 								<div>
 									<button class='btn buybtn' name='purchase' onclick="PurchaseSong(<?php echo $albumSong->getId(); ?>, <?php echo $userLoggedIn->getUserBalance(); ?>);">Purchase</button>
