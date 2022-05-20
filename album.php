@@ -82,11 +82,25 @@ else {
 						<input type='hidden' class='songId' value="<?php echo $albumSong->getId(); ?>">
 					</div>
 					<?php
+						$songgid = $albumSong->getId();
+						$likesongquery = "SELECT * FROM likedsong WHERE song_id=$songgid AND userid=$userId";
+						$likedsong = $con->query($likesongquery);
 						if($charge == 1 && $userId != $artistId){
 							?>
 								<div>
 									<button class='btn buybtn' name='purchase' onclick="PurchaseSong(<?php echo $albumSong->getId(); ?>, <?php echo $userLoggedIn->getUserBalance(); ?>);">Purchase</button>
-									<button class='btn liketbtn' name='purchase' onclick="LikeSong(<?php echo $albumSong->getId(); ?>)">Like</button>
+									<?php
+										if($likedsong->rowCount()==1){
+											?>
+												<button class='btn unliketbtn' name='unlike' onclick="UnLikeSong(<?php echo $albumSong->getId(); ?>)">Unlike</button>
+											<?php
+										}
+										else{
+											?>
+												<button class='btn liketbtn' name='purchase' onclick="LikeSong(<?php echo $albumSong->getId(); ?>)">Like</button>
+											<?php
+										}
+									?>
 									<button class='btn reportbtn' name='report' onclick="reportSong( <?php echo $userLoggedIn->getUserId(); ?>, <?php echo $albumSong->getId(); ?>);">Report</button>
 								</div>
 							<?php
@@ -94,7 +108,18 @@ else {
 						else{
 							?>
 								<div>
-									<button class='btn liketbtn' name='purchase' onclick="LikeSong(<?php echo $albumSong->getId(); ?>)">Like</button>
+									<?php
+										if($likedsong->rowCount()==1){
+											?>
+												<button class='btn unliketbtn' name='unlike' onclick="UnLikeSong(<?php echo $albumSong->getId(); ?>)">Unlike</button>
+											<?php
+										}
+										else{
+											?>
+												<button class='btn liketbtn' name='purchase' onclick="LikeSong(<?php echo $albumSong->getId(); ?>)">Like</button>
+											<?php
+										}
+									?>
 									<button class='btn reportbtn' name='report' onclick="reportSong( <?php echo $userLoggedIn->getUserId(); ?>, <?php echo $albumSong->getId(); ?>);">Report</button>
 								</div>
 							<?php
