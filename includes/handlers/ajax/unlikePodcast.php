@@ -12,7 +12,7 @@ if(isset($_POST['podId'])) {
     foreach ($user as $us) {
         $user_id = $us['id'];
     }
-    $likeQuery = "DELETE FROM likedpodcast WHERE pod_id=$playlistId AND user_id=$user_id";
+    $likeQuery = "DELETE FROM likedpodcast WHERE pod_id=$playlistId AND userid=$user_id";
     $con->exec($likeQuery);
  
 }

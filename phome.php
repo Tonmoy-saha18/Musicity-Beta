@@ -17,10 +17,13 @@
 		<?php
         $query = "SELECT * FROM users WHERE username='$username'";
         $returnobj = $con->query($query);
-        foreach ($returnobj->fetchAll() as $table){
-            $id = $table['id'];
-            $amount = $table['amount'];
-        }
+		$table1 = $returnobj->fetch();
+		$userid = $table1['id'];
+
+        // foreach ($returnobj->fetchAll() as $table){
+        //     $id = $table['id'];
+        //     $amount = $table['amount'];
+        // }
         $query = "SELECT * FROM podcasts ORDER BY RAND() LIMIT 50";
         $returnobj = $con->query($query);
         $podcastArray = $returnobj->fetchAll();
@@ -29,8 +32,9 @@
 			$artistid = $podId['artist_id']; // taking artistid
 			$pId = $podId['id']; //taking podcastid
 
+
 			//now taking the whelther the podcast is liked or not
-			$checkquery = "SELECT * FROM likedpodcast WHERE pod_id=$pId AND user_id=$id";
+			$checkquery = "SELECT * FROM likedpodcast WHERE pod_id=$pId AND userid=$userid";
 			$table = $con->query($checkquery);
 
 			//Now taking the username 
@@ -55,7 +59,7 @@
 						<input type='hidden' class='songId' value="<?php echo $podId['id']; ?>">
 					</div>
 					<?php
-					if($table->rowCount()>0){
+					if($table->rowCount()==1){
 						?>
 						<div>
 							<button class='btn donate' name='purchase' onclick="Donate(<?php echo $podId['id']; ?>, <?php echo $amount; ?>)">Donate</button>
