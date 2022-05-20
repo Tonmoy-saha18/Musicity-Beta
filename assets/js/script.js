@@ -307,3 +307,19 @@ function RatePodcast(poId) {
     location.reload();
   });
 }
+
+function LikeSong(podId) {
+  $.post("includes/handlers/ajax/likeSong.php", {
+    podId: podId,
+  }).done(function (error) {
+    // if (error != "") {
+    //   alert(error);
+    //   return;
+    // }
+ 
+    //do something when ajax returns
+    // openPage("album.php");
+    location.reload();
+  });
+}
+
