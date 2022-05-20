@@ -267,7 +267,8 @@ function LikePodcast(podId) {
     // }
 
     //do something when ajax returns
-    openPage("phome.php");
+    // openPage("phome.php");
+    location.reload();
   });
 }
 
@@ -281,11 +282,11 @@ function UnLikePodcast(podId) {
     // }
 
     //do something when ajax returns
-    openPage("phome.php");
+    // openPage("phome.php");
+    location.reload();
   });
 }
 
- 
 function RatePodcast(poId) {
   var rating = prompt("How much would you like to give out 5?");
   if (Number(rating) < 0 || Number(rating) > 5) {
@@ -300,8 +301,9 @@ function RatePodcast(poId) {
     //   alert(error);
     //   return;
     // }
- 
+
     //do something when ajax returns
-    openPage("phome.php");
+    // openPage("phome.php");
+    location.reload();
   });
 }
