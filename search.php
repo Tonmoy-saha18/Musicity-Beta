@@ -247,9 +247,9 @@ setCaretPosition(input, input.value.length);
             $podcastquery = "SELECT * FROM podcasts WHERE title LIKE '$term%' LIMIT 10";
             $data= $con->query($podcastquery);
             $podcastArray= $data->fetchAll();
-            $songsQuery=array_column($row, 'id');
-            if(empty($songsQuery)) {
-                echo "<span class='noResults'>No songs found matching " . $term . "</span>";
+            //$songsQuery=array_column($row, 'id');
+            if(empty($podcastArray)) {
+                echo "<span class='noResults'>No podcasts found matching " . $term . "</span>";
             }
             $query1 = "SELECT * FROM users WHERE id=$id";
             $returnobj = $con->query($query1);
