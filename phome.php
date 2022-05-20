@@ -19,6 +19,7 @@
         $returnobj = $con->query($query);
 		$table1 = $returnobj->fetch();
 		$userid = $table1['id'];
+		$amount = $table1['amount'];
 
         // foreach ($returnobj->fetchAll() as $table){
         //     $id = $table['id'];
