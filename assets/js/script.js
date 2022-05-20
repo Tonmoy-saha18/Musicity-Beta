@@ -284,3 +284,24 @@ function UnLikePodcast(podId) {
     openPage("phome.php");
   });
 }
+
+ 
+function RatePodcast(poId) {
+  var rating = prompt("How much would you like to give out 5?");
+  if (Number(rating) < 0 || Number(rating) > 5) {
+    alert("Rating should be between 0 to 5");
+    return;
+  }
+  $.post("includes/handlers/ajax/ratePodcast.php", {
+    podId: poId,
+    rating: rating,
+  }).done(function (error) {
+    // if (error != "") {
+    //   alert(error);
+    //   return;
+    // }
+ 
+    //do something when ajax returns
+    openPage("phome.php");
+  });
+}
