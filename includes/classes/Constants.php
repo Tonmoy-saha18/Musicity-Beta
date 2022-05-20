@@ -13,6 +13,7 @@
  
         public static $loginFailed = "Your username or password is incorrect";
         public static $notenoughmoney = "You don't have enough money in your account to withdraw";
+        public static $banned = "Your account is banned for voileting community standards";
  
     }
 ?>

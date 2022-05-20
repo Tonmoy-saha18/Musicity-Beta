@@ -16,6 +16,22 @@
             // echo query;
             $check_validity = "SELECT * FROM users WHERE username='$un' AND pasword='$encryptedpw'";
             $table = $this->con->query($check_validity);
+
+            $user = "SELECT * FROM users WHERE username='$un'";
+            $usertable = $this->con->query($user);
+
+            if($usertable->rowCount()>0){
+                $userinfo = $usertable->fetch();
+                $userinfoid = $userinfo['id'];
+
+                $check_banned_info = "SELECT * FROM banned WHERE user_id=$userinfoid";
+                $banned_table = $this->con->query($check_banned_info);
+
+                if($banned_table->rowCount()>0){
+                    array_push($this->errorArray,Constants::$banned);
+                    return false;
+                }
+            }
             /*
                 if(mysqli_num_rows($query) == 1) {
                     return true;

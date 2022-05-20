@@ -51,6 +51,7 @@
                       <p>
                           <label for="password"><i class="fas fa-lock"></i> Password </label><br>
                           <input type="password" placeholder="password" name="loginPassword" id="loginPassword" required>
+                          <?php echo $account->getError(Constants::$banned);  ?>
                       </p>
                       <button class="btn loginbtn" name="loginButton">Log in</button>
                       <p class="checker-section">Don't have any account?<a href="register.php"> Create one.</a></p>
