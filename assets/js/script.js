@@ -323,3 +323,19 @@ function LikeSong(podId) {
   });
 }
 
+function UnLikeSong(podId) {
+  $.post("includes/handlers/ajax/unlikeSong.php", {
+    podId: podId,
+  }).done(function (error) {
+    // if (error != "") {
+    //   alert(error);
+    //   return;
+    // }
+ 
+    //do something when ajax returns
+    // openPage("phome.php");
+    location.reload();
+  });
+}
+
+
